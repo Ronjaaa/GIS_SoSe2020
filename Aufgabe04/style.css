@@ -1,0 +1,127 @@
+/*Einstellungen*/
+/* Handy */
+@media (min-width: 1px) {
+	.shop{
+		grid-template-columns: auto;
+	}
+	.shop > div > button{
+	font-size: 16px;
+	}
+}
+
+@media (min-width: 600px) {
+	/* For Tablets: */
+	.shop{
+		grid-template-columns: auto auto;
+	}
+	.shop > div > button{
+	font-size: 16px;
+	}
+
+}
+@media (min-width: 1024px) {
+	/* For Desktop: */
+	.shop{
+		grid-template-columns: auto auto auto;
+	}
+}
+
+
+/*Hintergrund*/
+body {
+    background-image: url("bg.png");
+    font-family: sans-serif;
+}
+
+/*Kreis*/
+.ueberschrift {
+    background-color: rgb(240, 151, 210);
+    height: 900px;
+    width: 900px;
+    border-radius: 50%;
+    margin: -500px auto auto auto;
+    font-family: sans-serif;
+    color: whitesmoke;
+    text-align: center;
+}
+.ueberschrift h1 {
+    padding-top: 45%;
+    font-size: 150px;
+}
+.ueberschrift p {
+    margin-top: -100px;
+    margin-left: 180px;
+    font-size: 50px;
+}
+.ueberschrift img{
+    margin-left: auto;
+    margin-right:auto;
+    width: 100x;
+    height: 100px;
+    margin-top: auto;
+}
+.ueberschrift img:hover{
+    width: 110px;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+/*Navigationsleiste*/
+nav {
+    position: sticky;
+    top: 0;
+    margin-top: -15px;
+    background-color: black;
+    color:white;
+    font-family: sans-serif;
+    font-size: larger;
+    width: 335px;
+    height: 30px;
+    left: 60%;
+    padding-left: 10px;
+    border-radius: 0 0 10px 10px;
+}
+nav a {
+    text-decoration: none;
+    color:white;
+    font-family: sans-serif;
+}
+nav a:hover {
+    color: violet;
+    font-weight: bolder;
+}
+#istSeite{
+    color: violet;
+}
+
+/*Shop*/
+.shop{
+	display: grid;
+	grid-gap: 10px;
+    margin: auto;
+}	
+.shop > div {
+	border: 2px;
+	border-style: solid;
+	text-align: center;
+	padding: 20px 0;
+    font-size: 14px;
+    background-color: white;
+}
+.shop > div > img{
+	border: 2px;
+	border-style: none;
+    max-width: 250px;
+    max-height: 200px;
+}
+
+.shop > div > button{
+	background-color: white;
+	color: black;
+	font-family: sans-serif;
+}
+
+
+
