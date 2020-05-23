@@ -56,15 +56,6 @@
         color: white;
         font-family: sans-serif;
     }
-    nav img:hover {
-        width: 78px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: auto;
-    }
-    #istSeite {
-        color: violet;
-    }
 }
 
 /*Tablet Darstellung*/
@@ -129,15 +120,6 @@
         color: violet;
         font-weight: bolder;
     }
-    nav img:hover {
-        width: 78px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: auto;
-    }
-    #istSeite {
-        color: violet;
-    }
 }
 
 /*Desktop/Laptop Darstellung*/
@@ -195,15 +177,6 @@
     nav a:hover {
         color: violet;
         font-weight: bolder;
-    }
-    nav img:hover {
-        width: 78px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: auto;
-    }
-    #istSeite {
-        color: violet;
     }
 }
 
