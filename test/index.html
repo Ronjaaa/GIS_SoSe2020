@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="tsInterface.js" defer></script>
+    <title>MeinShop</title>
+</head>
+
+<body>
+
+    <header id=headerBox>
+        <div class=flexContainer>
+            <img src="ShopLogo.png" alt="Shop_Logo">
+            <img src="ShopName.png" alt="Shop_Name">
+            <input id=suchen type="text" placeholder="Suchen..">
+            <img src="wagen.png" alt="Wagen_Icon">
+
+            <ul id=Menü>
+                <li><img src="Menu.png" alt="Menu_Icon"></li>
+                <li><a href="#bürogegenstände">Büro</a></li>
+                <li><a href="#alltagsgegenstände">Nützliches</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h3 id=bürogegenstände>Büro Gegenstände</h3>
+        <div id=flexID class=flexProducts>
+        </div>
+
+        <h3 id=alltagsgegenstände>Nützliches</h3>
+        <div id=flexID2 class=flexProducts>
+        </div>
+    </main>
+
+    <footer>
+        <p>Fragen oder Probleme? Melden Sie sich nicht! Danke</p>
+    </footer>
+
+</body>
+
+</html>
