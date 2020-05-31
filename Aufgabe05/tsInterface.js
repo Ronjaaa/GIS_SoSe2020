@@ -203,7 +203,7 @@ let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel1
     artikel22, artikel23, artikel24];
 
 //Nutrition
-for (let i = 0; i < pralinen.length; i++) {
+for (let i = 0; i < nutrition.length; i++) {
     //Div-Elemente erstellen
     let newDiv = document.createElement("div");
     //ID zuweisen zu Div
