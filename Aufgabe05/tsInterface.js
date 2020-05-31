@@ -193,11 +193,9 @@ for (let i = 0; i < clothes.length; i++) {
     price.innerHTML = clothes[i].price;
     document.getElementById("div1" + i)?.appendChild(price);
     //button
-    let newInput = document.createElement("submit");
-    newInput.value = "buy";
-    newInput.type = "submit";
-    document.getElementById("nutrition" + i)?.appendChild(newInput);
-
+    let button = document.createElement("submit");
+    button.innerHTML = "buy";
+    document.getElementById("clothes" + i)?.appendChild(button);
 }
 
 //Artikel in Array
@@ -229,10 +227,9 @@ for (let i = 0; i < nutrition.length; i++) {
     price.innerHTML = nutrition[i].price;
     document.getElementById("div2" + i)?.appendChild(price);
     //BUTTON
-    let newInput = document.createElement("submit");
-    newInput.type = "submit";
-    newInput.value = "buy";
-    document.getElementById("nutrition" + i)?.appendChild(newInput);
+    let button = document.createElement("submit");
+    button.innerHTML = "buy";
+    document.getElementById("nutrition" + i)?.appendChild(button);
 }
 
 //# sourceMappingURL=tsInterface.js.map
