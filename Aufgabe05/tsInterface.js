@@ -27,65 +27,72 @@ let artikel23 = { img: "Produkte/creatinm.jpg", name: "ESN Creapure® Creatine M
 let artikel24 = { img: "Produkte/coffein.jpg", name: "Koffein Kapseln hochdosiert 200mg", description: "100 Kapseln - Qualität aus Deutschland - ohne unnötige Zusatzstoffe - reines Coffeine", price: "9,97€" };
 //Artikel in Array
 let clothes = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6, artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
-let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21, artikel22, artikel23, artikel34];
+let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21, artikel22, artikel23, artikel24];
 
-//CODE
 //Clothes
-for (let index = 0; index < clothes.length; index++) {
-    //DIV GENERIEREN
+for (let i = 0; i < clothes.length; i++) {
+    //Div-Elemente erstellen
     let newDiv = document.createElement("div");
-    newDiv.id = "div1" + index;
+    //ID zuweisen zu Div
+    newDiv.id = "clothes" + i;
+    //Element
     document.getElementById("grid1")?.appendChild(newDiv);
-    //IMG IN DIV PACKEN
-    let imgElement = document.createElement("img");
-    imgElement.src = clothes[index].img;
-    document.getElementById("div1" + index)?.appendChild(imgElement);
-    //NAME
+    //Bild
+    let newPicture = document.createElement("img");
+    newPicture.src = clothes[i].img;
+    document.getElementById("clothes" + i)?.appendChild(newPicture);
+    //Name
     let name = document.createElement("name");
-    name.innerHTML = clothes[index].name;
-    document.getElementById("div1" + index)?.appendChild(name);
-    //BESCHREIBUNG
+    name.innerHTML = clothes[i].name;
+    document.getElementById("div1" + i)?.appendChild(name);
+    //Beschreibung
     let description = document.createElement("description");
-    description.innerHTML = clothes[index].description;
-    document.getElementById("div1" + index)?.appendChild(description);
+    description.innerHTML = clothes[i].description;
+    document.getElementById("div1" + i)?.appendChild(description);
     //Farbe
     let colour = document.createElement("colour");
-    colour.innerHTML = clothes[index].description;
-    document.getElementById("div1" + index)?.appendChild(colour);
+    colour.innerHTML = clothes[i].description;
+    document.getElementById("div1" + i)?.appendChild(colour);
     //Preis
     let price = document.createElement("price");
-    price.innerHTML = clothes[index].description;
-    document.getElementById("div1" + index)?.appendChild(price);
-    //BUTTON
-    let buy = document.createElement("button");
-    buy.innerHTML = "buy";
-    document.getElementById("div1" + index)?.appendChild(buy);
+    price.innerHTML = clothes[i].description;
+    document.getElementById("div1" + i)?.appendChild(price);
+    //button
+    let buy = document.createElement("buy");
+    buy.value = "buy";
+    newInput.type = "submit";
+    document.getElementById("div1" + i)?.appendChild(buy);
+
 }
 //Nutrition
-for (let index = 0; index < nutrition.length; index++) {
-    //DIV GENERIEREN
+for (let i = 0; i < pralinen.length; i++) {
+    //Div-Elemente erstellen
     let newDiv = document.createElement("div");
-    newDiv.id = "div2" + index;
+    //ID zuweisen zu Div
+    newDiv.id = "div2" + i;
+    //Element
     document.getElementById("grid2")?.appendChild(newDiv);
-    //IMG IN DIV PACKEN
+    //Bild
     let imgElement = document.createElement("img");
-    imgElement.src = nutrition[index].img;
-    document.getElementById("div2" + index)?.appendChild(imgElement);
+    imgElement.src = nutrition[i].img;
+    document.getElementById("div2" + i)?.appendChild(imgElement);
     //NAME 
     let namePrice = document.createElement("p");
-    namePrice.innerHTML = nutrition[index].name;
-    document.getElementById("div2" + index)?.appendChild(namePrice);
+    namePrice.innerHTML = nutrition[i].name;
+    document.getElementById("div2" + i)?.appendChild(namePrice);
     //BESCHREIBUNG
     let description = document.createElement("description");
-    description.innerHTML = nutrition[index].description;
-    document.getElementById("div2" + index)?.appendChild(description);
+    description.innerHTML = nutrition[i].description;
+    document.getElementById("div2" + i)?.appendChild(description);
     //Preis
     let price = document.createElement("price");
-    price.innerHTML = nutrition[index].description;
-    document.getElementById("div2" + index)?.appendChild(price);
+    price.innerHTML = nutrition[i].description;
+    document.getElementById("div2" + i)?.appendChild(price);
     //BUTTON
-    let buy = document.createElement("button");
-    buy.innerHTML = "buy";
-    document.getElementById("div2" + index)?.appendChild(buy);
+    let buy = document.createElement("buy");
+    buy.value = "buy";
+    buy.type = "submit";
+    document.getElementById("pralinenProdukte" + i)?.appendChild(buy);
 }
+
 //# sourceMappingURL=tsInterface.js.map
