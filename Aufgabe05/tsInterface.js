@@ -159,6 +159,7 @@ let artikel24 = {
     description: "100 Kapseln - Qualität aus Deutschland - ohne unnötige Zusatzstoffe - reines Coffeine",
     price: "9,97€"
 };
+
 //Artikel in Array
 let clothes = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6, artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
 
@@ -184,17 +185,17 @@ for (let i = 0; i < clothes.length; i++) {
     document.getElementById("div1" + i)?.appendChild(description);
     //Farbe
     let colour = document.createElement("p");
-    colour.innerHTML = clothes[i].description;
+    colour.innerHTML = clothes[i].colour;
     document.getElementById("div1" + i)?.appendChild(colour);
     //Preis
     let price = document.createElement("p");
-    price.innerHTML = clothes[i].description;
+    price.innerHTML = clothes[i].price;
     document.getElementById("div1" + i)?.appendChild(price);
     //button
     let newInput = document.createElement("input");
     newInput.value = "buy";
     newInput.type = "submit";
-    document.getElementById("clothes" + i)?.appendChild(newInput);
+    document.getElementById("nutrition" + i)?.appendChild(newInput);
 
 }
 
@@ -224,7 +225,7 @@ for (let i = 0; i < nutrition.length; i++) {
     document.getElementById("div2" + i)?.appendChild(description);
     //Preis
     let price = document.createElement("p");
-    price.innerHTML = nutrition[i].description;
+    price.innerHTML = nutrition[i].price;
     document.getElementById("div2" + i)?.appendChild(price);
     //BUTTON
     let newInput = document.createElement("input");
