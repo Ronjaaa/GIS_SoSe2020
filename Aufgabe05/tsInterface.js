@@ -27,7 +27,6 @@ let artikel23 = { img: "Produkte/creatinm.jpg", name: "ESN Creapure® Creatine M
 let artikel24 = { img: "Produkte/coffein.jpg", name: "Koffein Kapseln hochdosiert 200mg", description: "100 Kapseln - Qualität aus Deutschland - ohne unnötige Zusatzstoffe - reines Coffeine", price: "9,97€" };
 //Artikel in Array
 let clothes = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6, artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
-let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21, artikel22, artikel23, artikel24];
 
 //Clothes
 for (let i = 0; i < clothes.length; i++) {
@@ -64,6 +63,10 @@ for (let i = 0; i < clothes.length; i++) {
     document.getElementById("div1" + i)?.appendChild(buy);
 
 }
+
+//Artikel in Array
+let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21, artikel22, artikel23, artikel24];
+
 //Nutrition
 for (let i = 0; i < pralinen.length; i++) {
     //Div-Elemente erstellen
