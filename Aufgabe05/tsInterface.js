@@ -193,7 +193,7 @@ for (let i = 0; i < clothes.length; i++) {
     //button
     let buy = document.createElement("buy");
     buy.value = "buy";
-    newInput.type = "submit";
+    buy.type = "submit";
     document.getElementById("div1" + i)?.appendChild(buy);
 
 }
