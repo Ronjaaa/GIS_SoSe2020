@@ -167,34 +167,34 @@ for (let i = 0; i < clothes.length; i++) {
     //Div-Elemente erstellen
     let newDiv = document.createElement("div");
     //ID zuweisen zu Div
-    newDiv.id = "clothes" + i;
+    newDiv.id = "div1" + i;
     //Element
     document.getElementById("grid1")?.appendChild(newDiv);
     //Bild
     let newPicture = document.createElement("img");
     newPicture.src = clothes[i].img;
-    document.getElementById("clothes" + i)?.appendChild(newPicture);
+    document.getElementById("div1" + i)?.appendChild(newPicture);
     //Name
-    let name = document.createElement("name");
+    let name = document.createElement("h1");
     name.innerHTML = clothes[i].name;
     document.getElementById("div1" + i)?.appendChild(name);
     //Beschreibung
-    let description = document.createElement("description");
+    let description = document.createElement("p");
     description.innerHTML = clothes[i].description;
     document.getElementById("div1" + i)?.appendChild(description);
     //Farbe
-    let colour = document.createElement("colour");
+    let colour = document.createElement("p");
     colour.innerHTML = clothes[i].description;
     document.getElementById("div1" + i)?.appendChild(colour);
     //Preis
-    let price = document.createElement("price");
+    let price = document.createElement("p");
     price.innerHTML = clothes[i].description;
     document.getElementById("div1" + i)?.appendChild(price);
     //button
-    let buy = document.createElement("buy");
-    buy.value = "buy";
-    buy.type = "submit";
-    document.getElementById("div1" + i)?.appendChild(buy);
+    let newInput = document.createElement("input");
+    newInput.value = "buy";
+    newInput.type = "submit";
+    document.getElementById("clothes" + i)?.appendChild(newInput);
 
 }
 
@@ -211,26 +211,26 @@ for (let i = 0; i < nutrition.length; i++) {
     //Element
     document.getElementById("grid2")?.appendChild(newDiv);
     //Bild
-    let imgElement = document.createElement("img");
-    imgElement.src = nutrition[i].img;
-    document.getElementById("div2" + i)?.appendChild(imgElement);
+    let newPicture = document.createElement("img");
+    newPicture.src = nutrition[i].img;
+    document.getElementById("div2" + i)?.appendChild(newPicture);
     //NAME 
-    let namePrice = document.createElement("p");
-    namePrice.innerHTML = nutrition[i].name;
-    document.getElementById("div2" + i)?.appendChild(namePrice);
+    let name = document.createElement("h1");
+    name.innerHTML = nutrition[i].name;
+    document.getElementById("div2" + i)?.appendChild(name);
     //BESCHREIBUNG
-    let description = document.createElement("description");
+    let description = document.createElement("p");
     description.innerHTML = nutrition[i].description;
     document.getElementById("div2" + i)?.appendChild(description);
     //Preis
-    let price = document.createElement("price");
+    let price = document.createElement("p");
     price.innerHTML = nutrition[i].description;
     document.getElementById("div2" + i)?.appendChild(price);
     //BUTTON
-    let buy = document.createElement("buy");
-    buy.value = "buy";
-    buy.type = "submit";
-    document.getElementById("pralinenProdukte" + i)?.appendChild(buy);
+    let newInput = document.createElement("input");
+    newInput.value = "buy";
+    newInput.type = "submit";
+    document.getElementById("nutrition" + i)?.appendChild(newInput);
 }
 
 //# sourceMappingURL=tsInterface.js.map
