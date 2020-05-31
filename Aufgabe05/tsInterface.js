@@ -161,7 +161,8 @@ let artikel24 = {
 };
 
 //Artikel in Array
-let clothes = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6, artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
+let clothes = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6, artikel7, artikel8, artikel9, 
+    artikel10, artikel11, artikel12];
 
 //Clothes
 for (let i = 0; i < clothes.length; i++) {
@@ -192,7 +193,7 @@ for (let i = 0; i < clothes.length; i++) {
     price.innerHTML = clothes[i].price;
     document.getElementById("div1" + i)?.appendChild(price);
     //button
-    let newInput = document.createElement("input");
+    let newInput = document.createElement("submit");
     newInput.value = "buy";
     newInput.type = "submit";
     document.getElementById("nutrition" + i)?.appendChild(newInput);
@@ -228,9 +229,9 @@ for (let i = 0; i < nutrition.length; i++) {
     price.innerHTML = nutrition[i].price;
     document.getElementById("div2" + i)?.appendChild(price);
     //BUTTON
-    let newInput = document.createElement("input");
-    newInput.value = "buy";
+    let newInput = document.createElement("submit");
     newInput.type = "submit";
+    newInput.value = "buy";
     document.getElementById("nutrition" + i)?.appendChild(newInput);
 }
 
