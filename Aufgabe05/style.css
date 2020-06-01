@@ -225,6 +225,9 @@ body {
     background-color: white;
     color: black;
     font-family: sans-serif;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
 }
 
 /*Warenkorb*/
