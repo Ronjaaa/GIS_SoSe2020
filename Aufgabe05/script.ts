@@ -193,8 +193,8 @@ for (let i = 0; i < clothes.length; i++) {
     price.innerHTML = clothes[i].price;
     document.getElementById("div1" + i)?.appendChild(price);
     //button
-    let button = document.createElement("submit");
-    button.innerHTML = "buy";
+    let button = document.createElement("button");
+    button.setAttribute("value", "buy");
     document.getElementById("clothes" + i)?.appendChild(button);
 }
 
