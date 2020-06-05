@@ -1,7 +1,6 @@
 "use strict";
-var Aufgabe05;
-(function (Aufgabe05) {
-    //Clothes
+var Aufgabe06;
+(function (Aufgabe06) {
     let artikel1 = {
         img: "Produkte/bh.jpg",
         name: "Under Armour",
@@ -86,7 +85,6 @@ var Aufgabe05;
         colour: "white/black",
         price: 24.95
     };
-    //Nutrition
     let artikel13 = {
         img: "Produkte/vitamins.jpg",
         name: "ESN Vitamin Stack",
@@ -173,6 +171,7 @@ var Aufgabe05;
         //Bild
         let newPicture = document.createElement("img");
         newPicture.src = clothes[i].img;
+        newPicture.setAttribute("alt", clothes[i].name);
         document.getElementById("div1" + i)?.appendChild(newPicture);
         //Name
         let name = document.createElement("h1");
@@ -193,7 +192,17 @@ var Aufgabe05;
         //button
         let setButton = document.createElement("button");
         setButton.innerHTML = "buy";
+        setButton.setAttribute("id", "button" + i);
         document.getElementById("div1" + i)?.appendChild(setButton);
+        setButton.addEventListener("click", counterbutton);
+        //Click Eigenschaft
+        let counterbeginn = 0;
+        let warenkorb = document.createElement("p");
+        warenkorb.innerHTML = "hallo";
+        function counterbutton(_event) {
+            counterbeginn++;
+            warenkorb.innerHTML = "" + counterbeginn;
+        }
     }
     //Artikel in Array
     let nutrition = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21,
@@ -225,8 +234,18 @@ var Aufgabe05;
         //BUTTON
         let setButton = document.createElement("button");
         setButton.innerHTML = "buy";
+        setButton.setAttribute("id", "button" + i);
         document.getElementById("div2" + i)?.appendChild(setButton);
+        setButton.addEventListener("click", counterbutton1);
+        //Click Eigenschaft
+        let counterbeginn1 = 0;
+        let warenkorb1 = document.createElement("p");
+        warenkorb1.innerHTML = "hallo";
+        function counterbutton1(_event) {
+            counterbeginn1++;
+            warenkorb1.innerHTML = "" + counterbeginn1;
+        }
     }
-})(Aufgabe05 || (Aufgabe05 = {}));
+})(Aufgabe06 || (Aufgabe06 = {}));
 //# sourceMappingURL=tsInterface.js.map
 //# sourceMappingURL=script.js.map
