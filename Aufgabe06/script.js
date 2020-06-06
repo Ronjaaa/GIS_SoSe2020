@@ -5,8 +5,6 @@ var Aufgabe06;
         //Div-Elemente erstellen
         let newDiv = document.createElement("div");
         newDiv.classList.add("product");
-        //Element
-        document.getElementById("grid1")?.appendChild(newDiv);
         //Bild
         let productImg = document.createElement("img");
         productImg.src = Aufgabe06.data[i].img;
@@ -36,19 +34,36 @@ var Aufgabe06;
         let setButton = document.createElement("button");
         setButton.innerHTML = "buy";
         setButton.setAttribute("id", "button" + i);
+        setButton.setAttribute("price", Aufgabe06.data[i].price.toString()); //preis wird als String angegeben
+        setButton.addEventListener("click", counterbutton);
         newDiv.appendChild(setButton);
-        //setButton.addEventListener("click", counterbutton);
-        document.getElementById(Aufgabe06.data[i].category + ("grid"))?.appendChild(newDiv);
+        document.getElementById(Aufgabe06.data[i].category + ("-grid"))?.appendChild(newDiv);
     }
-    //Click Eigenschaft
-    //let counterbeginn: number = 0;
-    // let warenkorb: HTMLParagraphElement = document.createElement("p");
-    // warenkorb.innerHTML = "hallo";
-    // function counterbutton(_event: Event): void {
-    //     counterbeginn++;
-    //     warenkorb.innerHTML = "" + counterbeginn;
-    //    newDiv.appendChild(setButton);
-    // }
+    //Variablen
+    let counterbeginn = 0;
+    let summe = 0;
+    //Counter erstellen
+    let warenkorb = document.createElement("p");
+    //ArtikelZähler Div erstellen
+    let az = document.createElement("div");
+    az.id = "az";
+    function counterbutton(_event) {
+        if (counterbeginn > 0) {
+            //warenkorb.innerHTML = warenkorb.toString();
+            document.getElementById("sc")?.appendChild(az);
+        }
+        //in Kreis anzeigen lassen
+        counterbeginn++;
+        warenkorb.innerHTML = "" + counterbeginn;
+        document.getElementById("az")?.appendChild(warenkorb);
+        //console.log("Anzahl Artikel: " + counterbeginn);
+        //Summe berechnen
+        let buttonPress = _event.target; //ignorieren von button fehler meldung
+        let priceButton = buttonPress.getAttribute("price");
+        let preisKommazahl = parseFloat(priceButton); //von String in Kommazahl
+        summe += preisKommazahl;
+        console.log(summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
+    }
 })(Aufgabe06 || (Aufgabe06 = {}));
 //# sourceMappingURL=tsInterface.js.map
 //# sourceMappingURL=script.js.map
