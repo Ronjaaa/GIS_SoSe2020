@@ -24,7 +24,7 @@ var Aufgabe06;
         //Farbe
         let colour = document.createElement("p");
         colour.innerText = Aufgabe06.data[i].colour;
-        colour.classList.add("product-desc");
+        colour.classList.add("product-colour");
         newDiv.appendChild(colour);
         //Preis
         let price = document.createElement("p");
@@ -40,29 +40,64 @@ var Aufgabe06;
         document.getElementById(Aufgabe06.data[i].category + ("-grid"))?.appendChild(newDiv);
     }
     //Variablen
-    let counterbeginn = 0;
+    let anzahl = 0;
     let summe = 0;
     //Counter erstellen
-    let warenkorb = document.createElement("p");
-    //ArtikelZähler Div erstellen
-    let az = document.createElement("div");
-    az.id = "az";
+    let counter = document.createElement("span");
     function counterbutton(_event) {
-        if (counterbeginn > 0) {
-            //warenkorb.innerHTML = warenkorb.toString();
-            document.getElementById("sc")?.appendChild(az);
+        if (anzahl == 0) {
+            document.getElementById("shoppingcart")?.appendChild(counter);
         }
         //in Kreis anzeigen lassen
-        counterbeginn++;
-        warenkorb.innerHTML = "" + counterbeginn;
-        document.getElementById("az")?.appendChild(warenkorb);
-        //console.log("Anzahl Artikel: " + counterbeginn);
+        anzahl++;
+        counter.innerText = "" + anzahl;
+        document.getElementById("artikelzaehler")?.appendChild(counter);
+        //console.log("Anzahl Artikel: " + anzahl);
         //Summe berechnen
         let buttonPress = _event.target; //ignorieren von button fehler meldung
         let priceButton = buttonPress.getAttribute("price");
         let preisKommazahl = parseFloat(priceButton); //von String in Kommazahl
         summe += preisKommazahl;
-        console.log(summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
+        console.log("Summe: " + summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
+    }
+    //Kategorien ausblenden
+    let ankerAlles = document.createElement("a");
+    ankerAlles.innerText = " | Alles |";
+    ankerAlles.setAttribute("id", "alleszeigen");
+    ankerAlles.classList.add("navigationstext");
+    ankerAlles.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerAlles);
+    let ankerClothes = document.createElement("a");
+    ankerClothes.innerText = " Clothes |";
+    ankerClothes.setAttribute("id", "clotheszeigen");
+    ankerClothes.classList.add("navigationstext");
+    ankerClothes.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerClothes);
+    let ankerNutrition = document.createElement("a");
+    ankerNutrition.innerText = " Nutrition";
+    ankerNutrition.setAttribute("id", "nutritionzeigen");
+    ankerNutrition.classList.add("navigationstext");
+    ankerNutrition.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerNutrition);
+    function einausBlenden(_event) {
+        if (_event.currentTarget.getAttribute("id") == "alleszeigen") {
+            document.getElementById("clothes-grid").style.display = "grid";
+            document.getElementById("Nutrition-grid").style.display = "grid";
+            document.getElementById("clothes").style.display = "block";
+            document.getElementById("nutrition").style.display = "block";
+        }
+        else if (_event.currentTarget.getAttribute("id") == "clotheszeigen") {
+            document.getElementById("clothes-grid").style.display = "grid";
+            document.getElementById("Nutrition-grid").style.display = "none";
+            document.getElementById("clothes").style.display = "block";
+            document.getElementById("nutrition").style.display = "none";
+        }
+        else if (_event.currentTarget.getAttribute("id") == "nutritionzeigen") {
+            document.getElementById("clothes-grid").style.display = "none";
+            document.getElementById("Nutrition-grid").style.display = "grid";
+            document.getElementById("clothes").style.display = "none";
+            document.getElementById("nutrition").style.display = "block";
+        }
     }
 })(Aufgabe06 || (Aufgabe06 = {}));
 //# sourceMappingURL=tsInterface.js.map
