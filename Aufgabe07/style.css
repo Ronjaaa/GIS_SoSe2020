@@ -256,6 +256,9 @@ body {
     color: black;
     font-family: sans-serif;
 }
+img[src$=".jpg"]{
+    height: 200px;
+}
 
 /*Artiekl Zähler*/
 span{

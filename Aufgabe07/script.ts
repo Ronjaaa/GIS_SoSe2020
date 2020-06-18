@@ -33,9 +33,10 @@ namespace Aufgabe07 {
             //button
             let setButton: HTMLButtonElement = document.createElement("button");
             setButton.innerHTML = "buy";
-            setButton.setAttribute("id", "button" + i);
-            setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
-            setButton.addEventListener("click", counterbutton);
+            //setButton.setAttribute("id", "button" + i);
+            //setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
+            //setButton.setAttribute("currentindex", i.toString());
+            setButton.addEventListener("click", handleCounterButton.bind(data[i]));
             newDiv.appendChild(setButton);
 
             document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);
@@ -50,7 +51,8 @@ namespace Aufgabe07 {
     //Counter erstellen
     let counter: HTMLSpanElement = document.createElement("span");
 
-    function counterbutton(_event: Event): void {
+    export function handleCounterButton(this: Artikel, _event: Event): void {
+        console.log(this);
         if (anzahl == 0) {
             document.getElementById("shoppingcart")?.appendChild(counter);
         }
@@ -67,14 +69,9 @@ namespace Aufgabe07 {
         let preisKommazahl: number = parseFloat(priceButton); //von String in Kommazahl
         summe += preisKommazahl;
         console.log("Summe: " + summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
-
-        artikelImWarenkorb.push(data[preisKommazahl]);
-        localStorage.setItem("product-img" + (artikelImWarenkorb.length - 1), data[preisKommazahl].img);
-        localStorage.setItem("product-name" + (artikelImWarenkorb.length - 1), data[preisKommazahl].name);
-        localStorage.setItem("product-desc" + (artikelImWarenkorb.length - 1), data[preisKommazahl].description);
-        localStorage.setItem("product-colour" + (artikelImWarenkorb.length - 1), data[preisKommazahl].colour);
-        localStorage.setItem("product-price" + (artikelImWarenkorb.length - 1), data[preisKommazahl].price.toString());
-        localStorage.setItem("anzahlArtikel", artikelImWarenkorb.length.toString());
+        artikelImWarenkorb.push(this);
+        localStorage.setItem("warenkorb", JSON.stringify(artikelImWarenkorb)); 
+        console.log(localStorage);
     }
 
     //Kategorien ausblenden

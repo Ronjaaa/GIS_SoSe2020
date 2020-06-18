@@ -1,42 +1,50 @@
 "use strict";
-var aufgabe07;
-(function (aufgabe07) {
+var Aufgabe07;
+(function (Aufgabe07) {
+    window.addEventListener("load", init);
     let gesamtpreis = 0;
     let pGesamtpreis = document.createElement("p");
-    let countTo = parseInt(localStorage.getItem("anzahlArtikel"));
-    createWarenkorbArtikel();
+    //let countTo: number = parseInt(localStorage.getItem("anzahlArtikel")!);
+    let warenkorbDaten = JSON.parse(localStorage.getItem("warenkorb"));
+    console.log(warenkorbDaten);
+    function init(_event) {
+        createWarenkorbArtikel();
+    }
+    //createWarenkorbArtikel();
     function createWarenkorbArtikel() {
-        for (let i = 0; i <= countTo - 1; i++) {
+        for (let i = 0; i < warenkorbDaten.length; i++) {
             //Div-Elemente erstellen
             let newDiv = document.createElement("div");
-            document.getElementById("warenkorbartikel").appendChild(newDiv);
+            document.getElementById("warenkorbArtikel").appendChild(newDiv);
             newDiv.id = "divId" + i;
             console.log("divId" + i);
             //Bild
             let imgElement = document.createElement("img");
-            imgElement.src = localStorage.getItem("product-img" + i);
+            imgElement.src = warenkorbDaten[i].img;
+            imgElement.alt = warenkorbDaten[i].name;
             newDiv.appendChild(imgElement);
             console.log(imgElement);
             //Name
             let name = document.createElement("h1");
-            name.innerHTML = localStorage.getItem("product-name" + i);
+            name.innerHTML = warenkorbDaten[i].name;
+            newDiv.appendChild(name);
             name.classList.add("product-name");
             //Beschreibung
             let desc = document.createElement("p");
-            desc.innerHTML = localStorage.getItem("product-desc" + i);
+            desc.innerHTML = warenkorbDaten[i].description;
             newDiv.appendChild(desc);
             //Farbe
             let colour = document.createElement("p");
-            desc.innerHTML = localStorage.getItem("product-colour" + i);
+            desc.innerHTML = warenkorbDaten[i].colour;
             newDiv.appendChild(colour);
             //Preis
             let price = document.createElement("p");
-            price.innerHTML = localStorage.getItem("artikel_preis" + i);
+            price.innerHTML = warenkorbDaten[i].price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
             newDiv.setAttribute("preis", price.innerHTML);
             newDiv.appendChild(price);
             //BUTTON
             let setButton = document.createElement("button");
-            setButton.innerHTML = "Delet";
+            setButton.innerHTML = "Delete";
             newDiv.appendChild(setButton);
             setButton.addEventListener("click", artikelLöschen);
             //Gesamtpreis berechnen
@@ -64,18 +72,8 @@ var aufgabe07;
         remButton.addEventListener("click", handleRemoveAll);
     }
     function handleRemoveAll(_event) {
-        for (let index = 0; index <= countTo - 1; index++) {
-            try {
-                document.getElementById("divId" + index).remove();
-            }
-            catch (error) {
-                console.log(error);
-                console.log("Artikel wurde zuvor von Hand gelöscht und kann nicht mehr gefunden werden");
-            }
-            pGesamtpreis.innerHTML = 0 + "€";
-            gesamtpreisAusgeben();
-            localStorage.clear();
-        }
+        localStorage.clear();
+        //update();
     }
-})(aufgabe07 || (aufgabe07 = {}));
+})(Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=warenkorb.js.map
