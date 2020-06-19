@@ -4,18 +4,22 @@ var Aufgabe07;
     window.addEventListener("load", init);
     let gesamtpreis = 0;
     let pGesamtpreis = document.createElement("p");
-    //let countTo: number = parseInt(localStorage.getItem("anzahlArtikel")!);
+    pGesamtpreis.innerText = "0,00 €";
+    //Gesamtpreis ausgeben
+    document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
     let warenkorbDaten = JSON.parse(localStorage.getItem("warenkorb"));
     console.log(warenkorbDaten);
     function init(_event) {
-        createWarenkorbArtikel();
+        if (warenkorbDaten[0] !== undefined) {
+            createWarenkorbArtikel();
+        }
     }
     //createWarenkorbArtikel();
     function createWarenkorbArtikel() {
         for (let i = 0; i < warenkorbDaten.length; i++) {
             //Div-Elemente erstellen
             let newDiv = document.createElement("div");
-            document.getElementById("warenkorbArtikel").appendChild(newDiv);
+            document.getElementById("warenkorbartikel").appendChild(newDiv);
             newDiv.id = "divId" + i;
             console.log("divId" + i);
             //Bild
@@ -47,33 +51,28 @@ var Aufgabe07;
             setButton.innerHTML = "Delete";
             newDiv.appendChild(setButton);
             setButton.addEventListener("click", artikelLöschen);
+            setButton.setAttribute("indexPreis", i.toString());
             //Gesamtpreis berechnen
-            gesamtpreis = gesamtpreis + parseFloat(price.innerHTML);
-            pGesamtpreis.innerHTML = gesamtpreis.toFixed(2) + "€";
-            gesamtpreisAusgeben();
+            gesamtpreis = gesamtpreis + warenkorbDaten[i].price;
+            pGesamtpreis.innerHTML = gesamtpreis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         }
         function artikelLöschen(_event) {
             //Gesampreis reduzieren
-            let preisString = _event.currentTarget.parentElement.getAttribute("preis");
-            gesamtpreis = gesamtpreis - parseFloat(preisString);
-            pGesamtpreis.innerHTML = gesamtpreis.toFixed(2) + "€";
-            gesamtpreisAusgeben();
+            let indexPreis = parseInt(_event.currentTarget.getAttribute("indexPreis"));
+            gesamtpreis = gesamtpreis - warenkorbDaten[indexPreis].price;
+            pGesamtpreis.innerHTML = gesamtpreis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
             //Artikel Löschen
             (_event.currentTarget.parentElement).remove();
         }
-        removeAll();
     }
-    //Gesamtpreis ausgeben
-    function gesamtpreisAusgeben() {
-        document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
-    }
-    function removeAll() {
-        let remButton = document.getElementById("liRemoveAll");
-        remButton.addEventListener("click", handleRemoveAll);
-    }
+    //Button alles löschen
+    let allesLoeschButton = document.createElement("button");
+    allesLoeschButton.innerHTML = "Delete All";
+    document.getElementById("allesLoeschen")?.appendChild(allesLoeschButton);
+    allesLoeschButton.addEventListener("click", handleRemoveAll);
     function handleRemoveAll(_event) {
         localStorage.clear();
-        //update();
+        location.reload();
     }
 })(Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=warenkorb.js.map

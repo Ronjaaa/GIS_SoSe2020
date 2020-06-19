@@ -2,12 +2,16 @@ namespace Aufgabe07 {
     window.addEventListener("load", init);
     let gesamtpreis: number = 0;
     let pGesamtpreis: HTMLParagraphElement = document.createElement("p");
-    //let countTo: number = parseInt(localStorage.getItem("anzahlArtikel")!);
+    pGesamtpreis.innerText = "0,00 €";
+    //Gesamtpreis ausgeben
+    document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
 
     let warenkorbDaten: Artikel[] = JSON.parse(localStorage.getItem("warenkorb")!);
     console.log(warenkorbDaten);
     function init(_event: Event): void {
-        createWarenkorbArtikel();
+        if (warenkorbDaten[0] !== undefined) {
+            createWarenkorbArtikel();
+        }
     }
 
     //createWarenkorbArtikel();
@@ -15,7 +19,7 @@ namespace Aufgabe07 {
         for (let i: number = 0; i < warenkorbDaten.length; i++) {
             //Div-Elemente erstellen
             let newDiv: HTMLDivElement = document.createElement("div");
-            (<HTMLElement>document.getElementById("warenkorbArtikel")).appendChild(newDiv);
+            (<HTMLElement>document.getElementById("warenkorbartikel")).appendChild(newDiv);
             newDiv.id = "divId" + i;
             console.log("divId" + i);
             //Bild
@@ -47,39 +51,32 @@ namespace Aufgabe07 {
             setButton.innerHTML = "Delete";
             newDiv.appendChild(setButton);
             setButton.addEventListener("click", artikelLöschen);
+            setButton.setAttribute("indexPreis", i.toString());
             //Gesamtpreis berechnen
-            gesamtpreis = gesamtpreis + parseFloat(price.innerHTML);
-            pGesamtpreis.innerHTML = gesamtpreis.toFixed(2) + "€";
-            gesamtpreisAusgeben();
+            gesamtpreis = gesamtpreis + warenkorbDaten[i].price;
+            pGesamtpreis.innerHTML = gesamtpreis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         }
 
         function artikelLöschen(_event: Event): void {
             //Gesampreis reduzieren
-            let preisString: string = (<HTMLParagraphElement>(<HTMLElement>_event.currentTarget).parentElement).getAttribute("preis")!;
-            gesamtpreis = gesamtpreis - parseFloat(preisString);
-            pGesamtpreis.innerHTML = gesamtpreis.toFixed(2) + "€";
-            gesamtpreisAusgeben();
+            let indexPreis: number = parseInt((<HTMLElement>_event.currentTarget).getAttribute("indexPreis")!);
+            gesamtpreis = gesamtpreis - warenkorbDaten[indexPreis].price;
+            pGesamtpreis.innerHTML = gesamtpreis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 
             //Artikel Löschen
             ((<HTMLDivElement>_event.currentTarget).parentElement!).remove();
         }
-        removeAll();
     }
 
-    //Gesamtpreis ausgeben
-    function gesamtpreisAusgeben(): void {
-        document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
-    }
+    //Button alles löschen
+    let allesLoeschButton: HTMLButtonElement = document.createElement("button");
+    allesLoeschButton.innerHTML = "Delete All";
+    document.getElementById("allesLoeschen")?.appendChild(allesLoeschButton);
+    allesLoeschButton.addEventListener("click", handleRemoveAll);
 
-    
-    function removeAll(): void {
-        let remButton: HTMLDListElement = (<HTMLDListElement>document.getElementById("liRemoveAll"));
-        remButton.addEventListener("click", handleRemoveAll);
-    }
-    
     function handleRemoveAll(_event: Event): void {
         localStorage.clear();
-        //update();
+        location.reload();
     }
 
 }
