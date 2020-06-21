@@ -7,8 +7,8 @@ namespace Aufgabe08 {
     //Die Formulardaten werden an den URL gehängt
     async function addToURL(): Promise<string> {
         formData = new FormData(document.forms[0]);
-        let url: string = "https://gissoserosl.herokuapp.com/";
-        //let url: string = "http://localhost:8100";
+        //let url: string = "https://gissoserosl.herokuapp.com/";
+        let url: string = "http://localhost:8100";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "?" + query.toString();
         return url;

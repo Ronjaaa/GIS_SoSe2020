@@ -7,8 +7,8 @@ var Aufgabe08;
     //Die Formulardaten werden an den URL gehängt
     async function addToURL() {
         formData = new FormData(document.forms[0]);
-        let url = "https://gissoserosl.herokuapp.com/";
-        //let url: string = "http://localhost:8100";
+        //let url: string = "https://gissoserosl.herokuapp.com/";
+        let url = "http://localhost:8100";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         return url;
