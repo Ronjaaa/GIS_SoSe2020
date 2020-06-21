@@ -2,7 +2,7 @@ import * as Http from "http";
 
 namespace Aufgabe08 {
     //Ausgabe Serverstart
-    console.log("Starting server");
+    console.log("Server wird gestartet");
     //port Vairable erstellen und port zuweisen
     let port: number = Number(process.env.PORT);
     //port überprüfen und gegebenfalls setzen
@@ -17,15 +17,15 @@ namespace Aufgabe08 {
     //server soll auf port hören und schauen ob es dort anfragen gibt.
     server.listen(port);
 
-    //Konsolen Ausgabe
+    //Konsolenausgabe
     function handleListen(): void {
-        console.log("Listening");
+        console.log("Ich höre dich");
     }
 
 
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-        //Konsolen ausgabe
-        console.log("I hear voices!");
+        //Konsolenausgabe
+        console.log("Ich höre dich immer noch");
         //Parameter des Headers der Response festlegen
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
