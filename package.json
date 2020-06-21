@@ -1,0 +1,21 @@
+{
+  "name": "gis_sose2020",
+  "version": "1.0.0",
+  "description": "Repository GIS",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "Aufgabe08/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronjaaa/GIS_SoSe2020.git"
+  },
+  "author": "RKS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ronjaaa/GIS_SoSe2020/issues"
+  },
+  "homepage": "https://github.com/Ronjaaa/GIS_SoSe2020#readme"
+}
