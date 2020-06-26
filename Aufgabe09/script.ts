@@ -41,7 +41,7 @@ namespace Aufgabe09 {
     }
 
     function urlErstellen(): void {
-        _url = "https://gissoserosl.herokuapp.com/";
+        _url = "https://gissoserosl.herokuapp.com";
         //_url = "http://localhost:8100";
     }
 }
