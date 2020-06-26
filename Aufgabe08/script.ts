@@ -15,7 +15,6 @@ namespace Aufgabe08 {
         let response2: string = await response1.text();
         console.log(response2);
         console.log("test123");
-
     }
 
     function handleButton(_event: Event): void {
