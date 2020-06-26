@@ -37,8 +37,8 @@ var Aufgabe09;
         urlErstellen(); //url wird überschrieben damit sie wieder leer ist
     }
     function urlErstellen() {
-        //_url = "https://gissoserosl.herokuapp.com/";
-        _url = "http://localhost:8100";
+        _url = "https://gissoserosl.herokuapp.com/";
+        //_url = "http://localhost:8100";
     }
 })(Aufgabe09 || (Aufgabe09 = {}));
 //# sourceMappingURL=script.js.map
