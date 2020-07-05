@@ -1,0 +1,197 @@
+/* Smartphone Darstellung */
+
+@media (max-width: 599px) {
+    .shop {
+        grid-template-columns: auto;
+    }
+    .shop>div>button {
+        font-size: 10px;
+    }
+    .warenkorb {
+        grid-template-columns: auto;
+    }
+    .warenkorb>div>button {
+        font-size: 10px;
+    }
+    /*Navigationsleiste*/
+    nav {
+        margin-top: -15px;
+        width: 350px;
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+    }
+}
+
+/*Tablet Darstellung*/
+
+@media (min-width: 600px) {
+    .shop {
+        grid-template-columns: auto auto auto;
+    }
+    .shop>div>button {
+        font-size: 16px;
+    }
+    .warenkorb {
+        grid-template-columns: auto auto auto;
+    }
+    .warenkorb>div>button {
+        font-size: 16px;
+    }
+    /*Navigationsleiste*/
+    nav {
+        margin-top: -15px;
+        width: 350px;
+        height: 50px;
+        left: 60%;
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+    }
+    nav a:hover {
+        color: violet;
+        font-weight: bolder;
+    }
+}
+
+/*Desktop/Laptop Darstellung*/
+
+@media (min-width: 1024px) {
+    .shop {
+        grid-template-columns: auto auto auto;
+    }
+    .warenkorb {
+        grid-template-columns: auto auto auto;
+    }
+    /*Banner*/
+    #banner {
+        width: 1340px;
+    }
+    /*Navigationsleiste*/
+    nav {
+        margin-top: auto;
+        width: auto;
+        height: 50px;
+        left: 60%;
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+    }
+    nav a:hover {
+        color: violet;
+        font-weight: bolder;
+    }
+}
+
+/*Hintergrund*/
+
+body {
+    font-family: sans-serif;
+}
+
+/*Navigationsleiste*/
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 88, 96);
+    font-family: sans-serif;
+    font-size: larger;
+    width: auto;
+    height: 50px;
+}
+.menue {
+    color: palevioletred;
+    text-align: center;
+}
+
+.ueberschrift {
+    font-family: sans-serif;
+    color: rgb(255, 88, 96);
+    text-align: center;
+}
+.ueberschrift>img {
+    height: 50px;
+    margin-top: 50px;
+    left: 60%;
+}
+footer {
+    background-color: rgb(255, 88, 96);
+    height: 50px;
+    text-align: center;
+    color: white;
+}
+
+/*Shop*/
+
+.shop {
+    display: grid;
+    grid-gap: 10px;
+    margin: auto;
+}
+
+.shop>div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    background-color: white;
+}
+
+.shop>div>img {
+    border: 2px;
+    border-style: none;
+    max-width: 250px;
+    max-height: 200px;
+}
+
+.shop>div>button {
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.shop>div>button:hover {
+    cursor: progress;
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+
+/*Warenkorb*/
+
+.warenkorb {
+    display: grid;
+    grid-gap: 100px;
+    margin: auto;
+}
+
+.warenkorb>div {
+    border: 2px;
+    border-style: none;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 14px;
+    background-color: white;
+}
+
+.warenkorb>div>button {
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}
+
+/*Artiekl Zähler*/
+
+span {
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
+}

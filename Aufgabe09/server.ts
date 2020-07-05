@@ -31,17 +31,17 @@ namespace Aufgabe09 {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         //Ausgabe der url
-        if (_request.url){
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            if (url.pathname == "/html") {
-                for (let key in url.query) {
-                    _response.write(key + ": " + url.query[key] + "<br>");
+        if (_request.url) { //wenn request url existiert soll das augeführt werden
+            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true); //aus der url wird mit parse ein assoziatives array erstellt
+            if (url.pathname == "/html") { //wenn url pfadnamen "/html" besitzt
+                for (let key in url.query) { //schleife durchläuft alle eigenschaften des objekts
+                    _response.write(key + ": " + url.query[key] + "<br>"); //server verschikt antwort, für jeden key wir der jeweilige wert im query ausgegeben 
                 }
             }
 
-            if (url.pathname == "/json") {
-                let jsonString: string = JSON.stringify(url.query);
-                _response.write(jsonString);
+            if (url.pathname == "/json") { // wenn url pfadname "/json" besitzt
+                let jsonString: string = JSON.stringify(url.query); //er speichert den query wert als json string
+                _response.write(jsonString); //server verschikt antwort als json-string
             }
         }
         console.log(_request.url);
