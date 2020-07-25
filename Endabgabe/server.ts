@@ -4,7 +4,8 @@ import * as Mongo from "mongodb";
 export namespace Endabgabe {
 
     let bestellungenList: Mongo.Collection;
-    let databaseUrl: string = "mongodb+srv://RonjaS:MongoDB1996@gis-ist-geil.rwghv.mongodb.net/Eisdiele?retryWrites=true&w=majority";
+    //
+    let databaseUrl: string = "mongodb+srv://RonjaS:gis123@gis-ist-geil.rwghv.mongodb.net/Eisdiele?retryWrites=true&w=majority";
     //let databaseUrl: string = "mongodb://localhost: 27017";
 
     console.log("Starting server");
