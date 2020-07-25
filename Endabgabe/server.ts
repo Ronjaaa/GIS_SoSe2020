@@ -52,6 +52,7 @@ export namespace Endabgabe {
                 _response.write(JSON.stringify(await bestellungenList.find().toArray()));
             }
         }
+        console.log(_request.url);
 
         _response.end();
     }
