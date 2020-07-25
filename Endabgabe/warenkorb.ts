@@ -1,5 +1,5 @@
 namespace Endabgabe {
-    let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
+    let formularButton: HTMLElement = <HTMLElement>document.getElementById("bestellungAbsenden");
     formularButton.addEventListener("click", formularClick);
     
 
