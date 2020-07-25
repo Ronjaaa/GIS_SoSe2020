@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
     let bestellungenList;
-    let databaseUrl = "mongodb+srv://RonjaS:<MongoDB1996>@gis-ist-geil.rwghv.mongodb.net/<Eisdiele>?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://RonjaS:MongoDB1996@gis-ist-geil.rwghv.mongodb.net/Eisdiele?retryWrites=true&w=majority";
     //let databaseUrl: string = "mongodb://localhost: 27017";
     console.log("Starting server");
     //Port Number wird unter port gespeichert
