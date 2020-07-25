@@ -31,9 +31,6 @@ var Endabgabe;
             //buttonadd
             let setButton = document.createElement("button");
             setButton.innerHTML = "add";
-            //setButton.setAttribute("id", "button" + i);
-            //setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
-            //setButton.addEventListener("click", counterbutton);
             setButton.setAttribute("eisgenerator", Endabgabe.data[i].img.toString());
             setButton.addEventListener("click", handleCounterButton.bind(Endabgabe.data[i]));
             newDiv.appendChild(setButton);
@@ -82,10 +79,6 @@ var Endabgabe;
                 //aus Eisgenerator löschen
                 document.getElementById("eisgeneratorbild" + i)?.remove();
                 //aus Warenkorb löschen
-                //let deletebuttonPress: HTMLButtonElement = <HTMLButtonElement>_event.target; //ignorieren von button fehler meldung
-                //let delteButton: string = <string>deletebuttonPress.getAttribute("product");
-                document.getElementById("artikeImWarenkorb" + i)?.remove();
-                localStorage.removeItem("artikelImWarenkorb");
             }
             document.getElementById(Endabgabe.data[i].category + ("-grid"))?.appendChild(newDiv);
         }

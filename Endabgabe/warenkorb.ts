@@ -1,4 +1,18 @@
-namespace Endabgebe {
+namespace Endabgabe {
+    let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
+    formularButton.addEventListener("click", formularClick);
+    
+
+
+
+    async function formularClick(): Promise<void> { 
+        let formData: FormData = new FormData(document.forms[0]);
+        let url: string = "https://gissoserosl.herokuapp.com";
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url = url + "/senden" + "?" + query.toString();
+        await fetch(url);
+    }
+
     window.addEventListener("load", init);
     let gesamtpreis: number = 0;
     let pGesamtpreis: HTMLParagraphElement = document.createElement("p");
@@ -99,7 +113,7 @@ namespace Endabgebe {
 
     function urlErstellen(): void { //der variable wird die url zugewiesen
         //url = "https://gissoserosl.herokuapp.com";
-        _url = "http://localhost:8100";
+        url = "http://localhost:8100";
     }
 
 }

@@ -1,6 +1,15 @@
 "use strict";
-var Endabgebe;
-(function (Endabgebe) {
+var Endabgabe;
+(function (Endabgabe) {
+    let formularButton = document.getElementById("bestellungAbsenden");
+    formularButton.addEventListener("click", formularClick);
+    async function formularClick() {
+        let formData = new FormData(document.forms[0]);
+        let url = "https://gissoserosl.herokuapp.com";
+        let query = new URLSearchParams(formData);
+        url = url + "/senden" + "?" + query.toString();
+        await fetch(url);
+    }
     window.addEventListener("load", init);
     let gesamtpreis = 0;
     let pGesamtpreis = document.createElement("p");
@@ -89,7 +98,7 @@ var Endabgebe;
     }
     function urlErstellen() {
         //url = "https://gissoserosl.herokuapp.com";
-        _url = "http://localhost:8100";
+        url = "http://localhost:8100";
     }
-})(Endabgebe || (Endabgebe = {}));
+})(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=warenkorb.js.map

@@ -31,9 +31,6 @@ namespace Endabgabe {
             //buttonadd
             let setButton: HTMLButtonElement = document.createElement("button");
             setButton.innerHTML = "add";
-            //setButton.setAttribute("id", "button" + i);
-            //setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
-            //setButton.addEventListener("click", counterbutton);
             setButton.setAttribute("eisgenerator", data[i].img.toString());
             setButton.addEventListener("click", handleCounterButton.bind(data[i]));
             newDiv.appendChild(setButton);
@@ -89,10 +86,7 @@ namespace Endabgabe {
                 document.getElementById("eisgeneratorbild" + i)?.remove();
 
                 //aus Warenkorb löschen
-                //let deletebuttonPress: HTMLButtonElement = <HTMLButtonElement>_event.target; //ignorieren von button fehler meldung
-                //let delteButton: string = <string>deletebuttonPress.getAttribute("product");
-                document.getElementById("artikeImWarenkorb" + i)?.remove();
-                localStorage.removeItem("artikelImWarenkorb");
+             
             }
 
             document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);

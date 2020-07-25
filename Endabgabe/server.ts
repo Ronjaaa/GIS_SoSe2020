@@ -1,39 +1,59 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
-
 export namespace Endabgabe {
-    //Ausgabe Serverstart
-    console.log("Server wird gestartet");
-    //port Vairable erstellen und port zuweisen
-    let port: number | string | undefined = (process.env.PORT);
-    //port überprüfen und gegebenfalls setzen
-    if (port == undefined)
+
+    let bestellungenList: Mongo.Collection;
+    let databaseUrl: string = "mongodb+srv://RonjaS:<MongoDB1996>@gis-ist-geil.rwghv.mongodb.net/<Eisdiele>?retryWrites=true&w=majority";
+    //let databaseUrl: string = "mongodb://localhost: 27017";
+
+    console.log("Starting server");
+    //Port Number wird unter port gespeichert
+    let port: number = Number(process.env.PORT);
+    //Wenn port nicht erreichbar, wird Wert 8100 vergeben
+    if (!port)
         port = 8100;
 
-    startServer(port);
+    connectToDatabase(databaseUrl);
 
-    function startServer (_port: number | string): void {
-        //Server variable erstellen
-        let server: Http.Server = Http.createServer();
-        console.log("Server starting Port:" + _port);
+    //Server und Listener erstellen
+    let server: Http.Server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen);
+    server.listen(port);
 
-        //server soll auf port hören und schauen ob es dort anfragen gibt.
-        server.listen(_port);
-        //handler hinzufügen
-        server.addListener("request", handleRequest);
+    async function connectToDatabase(_url: string): Promise<void> {
+        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+
+        bestellungenList = mongoClient.db("Eisdiele").collection("Bestellungen");
+        console.log("Database connection ", bestellungenList != undefined);
     }
 
-    //Konsolenausgabe
     function handleListen(): void {
-        console.log("Ich höre dich");
+        console.log("Listening");
     }
 
-    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-    await mongoClient.connect();
+    //Server Daten erhalten
+    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
-    let orders: Mongo.Collection = mongoClient.db("Eisdiele").collection("Bestellungen");
-    orders.insert({ ...});
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
+
+        if (_request.url) {
+            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+
+            if (url.pathname == "/senden")
+            bestellungenList.insertOne(url.query);
+
+            else if (url.pathname == "/holen") {
+                _response.write(JSON.stringify(await bestellungenList.find().toArray()));
+            }
+        }
+
+        _response.end();
+    }
 
 
 }
