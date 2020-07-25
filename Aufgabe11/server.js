@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
-var Aufgabe09;
-(function (Aufgabe09) {
+const Mongo = require("mongodb");
+var Aufgabe11;
+(function (Aufgabe11) {
     //Ausgabe Serverstart
     console.log("Server wird gestartet");
     //port Vairable erstellen und port zuweisen
@@ -22,6 +23,8 @@ var Aufgabe09;
     function handleListen() {
         console.log("Ich höre dich");
     }
+    let mongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
     function handleRequest(_request, _response) {
         //Konsolenausgabe
         console.log("Ich höre dich immer noch");
@@ -45,5 +48,5 @@ var Aufgabe09;
         //response abschließen
         _response.end();
     }
-})(Aufgabe09 || (Aufgabe09 = {}));
+})(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=server.js.map

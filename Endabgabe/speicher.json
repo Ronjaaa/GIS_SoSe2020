@@ -1,0 +1,116 @@
+[
+    {
+        "img": "Produkte/waffel.png",
+        "name": "Waffel",
+        "price": 0.00,
+        "category": "eisbasis"
+    },
+    {
+        "img": "Produkte/becher.png",
+        "name": "Becher",
+        "price": 0.00,
+        "category": "eisbasis"
+    },
+    {
+        "img": "Produkte/schockolade.jpg",
+        "name": "Schockolade",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/cookiedough.png",
+        "name": "Cookie Dough",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/erdbeere.jpg",
+        "name": "Erdbeere",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/haselnuss.jpg",
+        "name": "Haselnuss",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/karamell.jpg",
+        "name": "Karamell",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/pistazie.png",
+        "name": "Pistazie",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/stracciatella.jpg",
+        "name": "Stracciatella",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/walnuss.jpg",
+        "name": "Walnuss",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/wassermelone.jpg",
+        "name": "Wassermelone",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/zitrone.jpg",
+        "name": "Zitrone",
+        "price": 1.50,
+        "category": "eissorten"
+    },
+    {
+        "img": "Produkte/chocolate-curls-260nw-32654356.jpg",
+        "name": "Schokoladenstreusel",
+        "price": 0.50,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/lots-little-marshmallows-on-white-260nw-500965504.jpg",
+        "name": "Mini Marshmallows",
+        "price": 0.50,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/pile-of-smarties.jpg",
+        "name": "Smarties",
+        "price": 0.50,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/sprinkles-stock-photography-donuts-clip-art-cupcake-png-favpng-rMNmZZBZG12dKb4eK7zyiKzQV.jpg",
+        "name": "Bunte Streusel",
+        "price": 0.50,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/7307820_stock-photo-strawberry-sauce.jpg",
+        "name": "Erdbeesoße",
+        "price": 0.99,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/8744118_stock-photo-caramel-sauce.jpg",
+        "name": "Karamellsoße",
+        "price": 0.99,
+        "category": "toppings"
+    },
+    {
+        "img": "Produkte/abstract-pattern-made-chocolate-isolated-260nw-1417927172.jpg",
+        "name": "Schockoladensoße",
+        "price": 0.99,
+        "category": "toppings"
+    }
+]

@@ -4,30 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Train&Gain</title>
+    <title>IceCreamDream</title>
     <link rel="stylesheet" href="style.css">
+    <script src="Artikel.js" defer></script>
+    <script src="warenkorb.js" defer></script>
 </head>
 
 <body>
     <nav>
-        <a href="https://ronjaaa.github.io/GIS_SoSe2020/Aufgabe04/index.html"><img src="haus.png" alt="haus" width="40"></a>
-
-        <a href="https://ronjaaa.github.io/GIS_SoSe2020/Aufgabe04/index.html">Clothes</a>
+        <a href="index.html">zurück zum Shop</a>
         |
-        <a href="https://ronjaaa.github.io/GIS_SoSe2020/Aufgabe04/index.html">Nutrition</a>
-        |
-        <a href="https://ronjaaa.github.io/GIS_SoSe2020/Aufgabe04/einkaufswaagen.html"><img src="sc.png" alt="sc"
-                width="75"></a>
+        <a href="einkaufswaagen.html"><img src="sc.png" alt="sc" width="75"></a>
     </nav>
 
     <div class="ueberschrift">
-        <h1>Train&Gain</h1>
-        <img src="weight.png" src="logo">
+        <h1>Eismanufaktur IceCreamDream</h1>
     </div>
     <br>
     <main class="warenkorb">
         <div id="artikel">
-            <h1>Warenkorb (0 Artikel)</h1>
+            <h1>Warenkorb</h1>
+            <div id="warenkorbartikel"></div>
+            <br>
+            <div id="allesLoeschen"></div>
             <br>
             <hr>
             <br>
@@ -50,10 +49,6 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Zwischensumme</td>
-                    <td>0,00€</td>
-                </tr>
-                <tr>
                     <td>Lieferung</td>
                     <td>gratis</td>
                 </tr>
@@ -67,22 +62,24 @@
                         <h1>Gesamtsumme (inkl. MwSt.)</h1>
                     </td>
                     <td>
-                        <h1>0,00€</h1>
+                        <h1 id="warenkorbWert"></h1>
                     </td>
                 </tr>
             </table>
             <br>
-            <input type="submit" value="ZUR KASSE" />
+            <input type="submit" value="Bestellung(en) absenden!" id="bestellungAbsenden" />
 
 
 
         </div>
+        <p id="htmlAusgabe"></p>
+
     </main>
     <br>
-    <hr>
 
     <footer>
         <p>Impressum: Hier können Sie das Impressum nachlesen.</p>
+        <p>Ronja Kerstin Slabon</p>
     </footer>
 
 </body>

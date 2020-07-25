@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe09;
-(function (Aufgabe09) {
+var Aufgabe11;
+(function (Aufgabe11) {
     let formData; //mit form data kann man sich die datein aus dem formular holen
     let newButton1 = document.getElementById("buttonhtml");
     newButton1.addEventListener("click", handleHtml);
@@ -40,5 +40,5 @@ var Aufgabe09;
         url = "https://gissoserosl.herokuapp.com";
         //_url = "http://localhost:8100";
     }
-})(Aufgabe09 || (Aufgabe09 = {}));
+})(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=script.js.map

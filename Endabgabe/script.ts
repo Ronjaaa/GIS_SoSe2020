@@ -1,68 +1,102 @@
-namespace Aufgabe06 {
+namespace Endabgabe {
+    ladeArtikelVonJSON("speicher.json");
+    export function erstelleArtikel(): void {
 
-    for (let i: number = 0; i < data.length; i++) {
-        //Div-Elemente erstellen
-        let newDiv: HTMLDivElement = document.createElement("div");
-        newDiv.classList.add("product");
-        //Bild
-        let productImg: HTMLImageElement = document.createElement("img");
-        productImg.src = data[i].img;
-        productImg.alt = data[i].name;
-        productImg.classList.add("product-img");
-        newDiv.appendChild(productImg);
-        //Name
-        let name: HTMLHeadingElement = document.createElement("h1");
-        name.innerText = data[i].name;
-        name.classList.add("product-name");
-        newDiv.appendChild(name);
-        //Beschreibung
-        let describtion: HTMLSpanElement = document.createElement("p");
-        describtion.innerText = data[i].description;
-        describtion.classList.add("product-desc");
-        newDiv.appendChild(describtion);
-        //Farbe
-        let colour: HTMLSpanElement = document.createElement("p");
-        colour.innerText = data[i].colour;
-        colour.classList.add("product-colour");
-        newDiv.appendChild(colour);
-        //Preis
-        let price: HTMLParagraphElement = document.createElement("p");
-        price.innerHTML = data[i].price + "€";
-        newDiv.appendChild(price);
-        //button
-        let setButton: HTMLButtonElement = document.createElement("button");
-        setButton.innerHTML = "buy";
-        setButton.setAttribute("id", "button" + i);
-        setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
-        setButton.addEventListener("click", counterbutton);
-        newDiv.appendChild(setButton);
+        //Variablen
+        let anzahl: number = 0;
+        let summe: number = 0;
+        let artikelImWarenkorb: Artikel[] = [];
+        //Counter erstellen
+        let counter: HTMLSpanElement = document.createElement("span");
 
-        document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);
-    }
+        for (let i: number = 0; i < data.length; i++) {
+            //Div-Elemente erstellen
+            let newDiv: HTMLDivElement = document.createElement("div");
+            newDiv.classList.add("product");
+            //Bild
+            let productImg: HTMLImageElement = document.createElement("img");
+            productImg.src = data[i].img;
+            productImg.alt = data[i].name;
+            productImg.classList.add("product-img");
+            newDiv.appendChild(productImg);
+            //Name
+            let name: HTMLHeadingElement = document.createElement("h1");
+            name.innerText = data[i].name;
+            name.classList.add("product-name");
+            newDiv.appendChild(name);
+            //Preis
+            let price: HTMLParagraphElement = document.createElement("p");
+            price.innerHTML = data[i].price.toFixed(2) + "€";
+            newDiv.appendChild(price);
+            //buttonadd
+            let setButton: HTMLButtonElement = document.createElement("button");
+            setButton.innerHTML = "add";
+            //setButton.setAttribute("id", "button" + i);
+            //setButton.setAttribute("price", data[i].price.toString()); //preis wird als String angegeben
+            //setButton.addEventListener("click", counterbutton);
+            setButton.setAttribute("eisgenerator", data[i].img.toString());
+            setButton.addEventListener("click", handleCounterButton.bind(data[i]));
+            newDiv.appendChild(setButton);
+            //Buttondelte
+            let deleteButton: HTMLButtonElement = document.createElement("button");
+            deleteButton.innerHTML = "delete";
+            deleteButton.setAttribute("id", "button" + i);
+            deleteButton.addEventListener("click", handleDeleteButton.bind(data[i]));
+            newDiv.appendChild(deleteButton);
 
-    //Variablen
-    let anzahl: number = 0;
-    let summe: number = 0;
-    //Counter erstellen
-    let counter: HTMLSpanElement = document.createElement("span");
+            function handleCounterButton(this: Artikel, _event: Event): void {
 
-    function counterbutton(_event: Event): void {
-        if (anzahl == 0) {
-            document.getElementById("shoppingcart")?.appendChild(counter);
+                console.log(this);
+                if (anzahl == 0) {
+                    document.getElementById("shoppingcart")?.appendChild(counter);
+                }
+                //Eisgenerator
+                let eisgeneratorButtonpress: HTMLImageElement = <HTMLImageElement>_event.target;
+                let eisgeneratorButton: string = eisgeneratorButtonpress.getAttribute("eisgenerator") + "";
+                let productImg: HTMLImageElement = document.createElement("img");
+                productImg.setAttribute("class", "eisgeneratorbild");
+                productImg.setAttribute("id", "eisgeneratorbild" + i);
+                productImg.setAttribute("src", data[i].img);
+                document.getElementById("eisgenerator")?.appendChild(productImg);
+                console.log("Eisgereator: " + eisgeneratorButton);
+
+                //in Kreis anzeigen lassen
+                anzahl++;
+                counter.innerText = "" + anzahl;
+                document.getElementById("artikelzaehler")?.appendChild(counter);
+                //console.log("Anzahl Artikel: " + anzahl);
+
+                //Summe berechnen
+                let buttonPress: HTMLButtonElement = <HTMLButtonElement>_event.target; //ignorieren von button fehler meldung
+                let priceButton: string = <string>buttonPress.getAttribute("price");
+                let preisKommazahl: number = parseFloat(priceButton); //von String in Kommazahl
+                summe += preisKommazahl;
+                console.log("Summe: " + summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
+                artikelImWarenkorb.push(this);
+                localStorage.setItem("warenkorb", JSON.stringify(artikelImWarenkorb));
+                console.log(localStorage);
+            }
+
+            function handleDeleteButton(this: Artikel, _event: Event): void {
+                //Counter reduzieren
+                if (anzahl >= 1) {
+                    anzahl--;
+                    counter.innerText = "" + anzahl;
+                }
+                document.getElementById("artikelzaehler")?.appendChild(counter);
+
+                //aus Eisgenerator löschen
+                document.getElementById("eisgeneratorbild" + i)?.remove();
+
+                //aus Warenkorb löschen
+                //let deletebuttonPress: HTMLButtonElement = <HTMLButtonElement>_event.target; //ignorieren von button fehler meldung
+                //let delteButton: string = <string>deletebuttonPress.getAttribute("product");
+                document.getElementById("artikeImWarenkorb" + i)?.remove();
+                localStorage.removeItem("artikelImWarenkorb");
+            }
+
+            document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);
         }
-
-        //in Kreis anzeigen lassen
-        anzahl++;
-        counter.innerText = "" + anzahl;
-        document.getElementById("artikelzaehler")?.appendChild(counter);
-        //console.log("Anzahl Artikel: " + anzahl);
-
-        //Summe berechnen
-        let buttonPress: HTMLButtonElement = <HTMLButtonElement>_event.target; //ignorieren von button fehler meldung
-        let priceButton: string = <string>buttonPress.getAttribute("price");
-        let preisKommazahl: number = parseFloat(priceButton); //von String in Kommazahl
-        summe += preisKommazahl;
-        console.log("Summe: " + summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" }));
     }
 
     //Kategorien ausblenden
@@ -73,43 +107,63 @@ namespace Aufgabe06 {
     ankerAlles.addEventListener("click", einausBlenden);
     document.getElementById("menue")?.appendChild(ankerAlles);
 
-    let ankerClothes: HTMLAnchorElement = document.createElement("a");
-    ankerClothes.innerText = " Clothes |";
-    ankerClothes.setAttribute("id", "clotheszeigen");
-    ankerClothes.classList.add("navigationstext");
-    ankerClothes.addEventListener("click", einausBlenden);
-    document.getElementById("menue")?.appendChild(ankerClothes);
+    let ankerBasis: HTMLAnchorElement = document.createElement("a");
+    ankerBasis.innerText = " Eisbasis |";
+    ankerBasis.setAttribute("id", "eisbasisanzeigen");
+    ankerBasis.classList.add("navigationstext");
+    ankerBasis.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerBasis);
 
-    let ankerNutrition: HTMLAnchorElement = document.createElement("a");
-    ankerNutrition.innerText = " Nutrition";
-    ankerNutrition.setAttribute("id", "nutritionzeigen");
-    ankerNutrition.classList.add("navigationstext");
-    ankerNutrition.addEventListener("click", einausBlenden);
-    document.getElementById("menue")?.appendChild(ankerNutrition);
+    let ankerEis: HTMLAnchorElement = document.createElement("a");
+    ankerEis.innerText = " Eissorten |";
+    ankerEis.setAttribute("id", "eissortenzeigen");
+    ankerEis.classList.add("navigationstext");
+    ankerEis.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerEis);
+
+    let ankerToppings: HTMLAnchorElement = document.createElement("a");
+    ankerToppings.innerText = " Toppings";
+    ankerToppings.setAttribute("id", "toppingszeigen");
+    ankerToppings.classList.add("navigationstext");
+    ankerToppings.addEventListener("click", einausBlenden);
+    document.getElementById("menue")?.appendChild(ankerToppings);
 
     function einausBlenden(_event: Event): void {
         if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "alleszeigen") {
-            (<HTMLDivElement>document.getElementById("clothes-grid")).style.display = "grid";
-            (<HTMLDivElement>document.getElementById("Nutrition-grid")).style.display = "grid";
-            (<HTMLHeadingElement>document.getElementById("clothes")).style.display = "block";
-            (<HTMLHeadingElement>document.getElementById("nutrition")).style.display = "block";
+            (<HTMLDivElement>document.getElementById("eissorten-grid")).style.display = "grid";
+            (<HTMLDivElement>document.getElementById("toppings-grid")).style.display = "grid";
+            (<HTMLDivElement>document.getElementById("eisbasis-grid")).style.display = "grid";
+            (<HTMLHeadingElement>document.getElementById("eissorten")).style.display = "block";
+            (<HTMLHeadingElement>document.getElementById("toppings")).style.display = "block";
+            (<HTMLHeadingElement>document.getElementById("eisbasis")).style.display = "block";
 
         }
-        else if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "clotheszeigen") {
-            (<HTMLDivElement>document.getElementById("clothes-grid")).style.display = "grid";
-            (<HTMLDivElement>document.getElementById("Nutrition-grid")).style.display = "none";
-            (<HTMLHeadingElement>document.getElementById("clothes")).style.display = "block";
-            (<HTMLHeadingElement>document.getElementById("nutrition")).style.display = "none";
+        else if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "eisbasisanzeigen") {
+            (<HTMLDivElement>document.getElementById("eisbasis-grid")).style.display = "grid";
+            (<HTMLDivElement>document.getElementById("eissorten-grid")).style.display = "none";
+            (<HTMLDivElement>document.getElementById("toppings-grid")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("eisbasis")).style.display = "block";
+            (<HTMLHeadingElement>document.getElementById("eissorten")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("toppings")).style.display = "none";
 
         }
-        else if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "nutritionzeigen") {
-            (<HTMLDivElement>document.getElementById("clothes-grid")).style.display = "none";
-            (<HTMLDivElement>document.getElementById("Nutrition-grid")).style.display = "grid";
-            (<HTMLHeadingElement>document.getElementById("clothes")).style.display = "none";
-            (<HTMLHeadingElement>document.getElementById("nutrition")).style.display = "block";
+        else if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "eissortenzeigen") {
+            (<HTMLDivElement>document.getElementById("eisbasis-grid")).style.display = "none";
+            (<HTMLDivElement>document.getElementById("eissorten-grid")).style.display = "grid";
+            (<HTMLDivElement>document.getElementById("toppings-grid")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("eisbasis")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("eissorten")).style.display = "block";
+            (<HTMLHeadingElement>document.getElementById("toppings")).style.display = "none";
 
+        }
+        else if ((<HTMLDivElement>_event.currentTarget).getAttribute("id") == "toppingszeigen") {
+            (<HTMLDivElement>document.getElementById("eisbasis-grid")).style.display = "none";
+            (<HTMLDivElement>document.getElementById("eissorten-grid")).style.display = "none";
+            (<HTMLDivElement>document.getElementById("toppings-grid")).style.display = "grid";
+            (<HTMLHeadingElement>document.getElementById("eisbasis")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("eissorten")).style.display = "none";
+            (<HTMLHeadingElement>document.getElementById("toppings")).style.display = "block";
         }
     }
-
 }
 //# sourceMappingURL=tsInterface.js.map
