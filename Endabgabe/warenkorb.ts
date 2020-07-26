@@ -73,7 +73,7 @@ namespace Endabgabe {
     }
 
     //Start Macell
-    /* let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
+    let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
     formularButton.addEventListener("click", formularClick);
 
     async function formularClick(): Promise<void> {
@@ -90,7 +90,7 @@ namespace Endabgabe {
         await fetch(url);
         console.log("test123");
         urlErstellen();
-    } */
+    } 
     //Datenbank
     let formData: FormData; //mit form data kann man sich die datein aus dem formular holen
     let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungAbsenden"));

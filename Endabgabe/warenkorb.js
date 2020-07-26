@@ -67,24 +67,20 @@ var Endabgabe;
         location.reload();
     }
     //Start Macell
-    /* let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
+    let formularButton = document.getElementById("bestellungAbsenden");
     formularButton.addEventListener("click", formularClick);
-
-    async function formularClick(): Promise<void> {
-
+    async function formularClick() {
         //formData = new FormData(document.forms[0]);
         urlErstellen();
-        let formData: FormData = new FormData(document.forms[0]);
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-
-        let url: string = "https://gissoserosl.herokuapp.com";
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        let url = "https://gissoserosl.herokuapp.com";
         url = url + "/senden" + "?" + query.toString();
-
         console.log(url);
         await fetch(url);
         console.log("test123");
         urlErstellen();
-    } */
+    }
     //Datenbank
     let formData; //mit form data kann man sich die datein aus dem formular holen
     let newButton = document.getElementById("bestellungAbsenden");
