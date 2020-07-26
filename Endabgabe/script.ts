@@ -81,12 +81,9 @@ namespace Endabgabe {
                     counter.innerText = "" + anzahl;
                 }
                 document.getElementById("artikelzaehler")?.appendChild(counter);
-
                 //aus Eisgenerator löschen
                 document.getElementById("eisgeneratorbild" + i)?.remove();
-
                 //aus Warenkorb löschen
-             
             }
 
             document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);

@@ -1,11 +1,9 @@
 namespace Endabgabe {
+
     let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
     formularButton.addEventListener("click", formularClick);
-    
 
-
-
-    async function formularClick(): Promise<void> { 
+    async function formularClick(): Promise<void> {
 
         //formData = new FormData(document.forms[0]);
 
@@ -21,7 +19,7 @@ namespace Endabgabe {
         console.log("test123");
         urlErstellen();
     }
-
+    
     window.addEventListener("load", init);
     let gesamtpreis: number = 0;
     let pGesamtpreis: HTMLParagraphElement = document.createElement("p");
@@ -99,11 +97,11 @@ namespace Endabgabe {
     let formData: FormData; //mit form data kann man sich die datein aus dem formular holen
     let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungAbsenden"));
     newButton.addEventListener("click", handleHtml);
-   
+
     let url: string; //deklariere globale variable url. Wird hier deviniert damit es in allen funtionen benutzt werden können
 
     //Die Formulardaten werden an den URL gehängt - HTML
-    async function handleHtml(): Promise<void> { 
+    async function handleHtml(): Promise<void> {
         formData = new FormData(document.forms[0]);
 
         // tslint:disable-next-line: no-any
