@@ -73,45 +73,29 @@ namespace Endabgabe {
     }
 
     //Start Macell
-    let formularButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bestellungAbsenden");
-    formularButton.addEventListener("click", formularClick);
-
-    async function formularClick(): Promise<void> {
-
-        //formData = new FormData(document.forms[0]);
-        urlErstellen();
-        let formData: FormData = new FormData(document.forms[0]);
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-
-        let url: string = "https://gissoserosl.herokuapp.com";
-        url = url + "/senden" + "?" + query.toString();
-
-        console.log(url);
-        await fetch(url);
-        console.log("test123");
-        urlErstellen();
-    } 
-    //Datenbank
-    let formData: FormData; //mit form data kann man sich die datein aus dem formular holen
     let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungAbsenden"));
     newButton.addEventListener("click", handleNewButton);
 
     let url: string; //deklariere globale variable url. Wird hier deviniert damit es in allen funtionen benutzt werden können
 
-    //Die Formulardaten werden an den URL gehängt - HTML
     async function handleNewButton(): Promise<void> {
-        formData = new FormData(document.forms[0]);
+        let formData: FormData = new FormData(document.forms[0]);
 
         // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData); // mit hilfe von urlSearParems wereden die formulardaten im query string gespeichert
-        urlErstellen(); //url wird in die funktion eingelesenund ggf. auf den standartwert zureck gesetzt
-        url = url + "/aenden" + "?" + query.toString(); //and die url wird der pfad und der querry string angehängt.
-        //Die Antwort wird vom Server geholt
-        await fetch(url, { method: "get" }); //antwort wird mit hilfe von fetch anden server gesendet
-        console.log("test123");
-        urlErstellen(); //url wird überschrieben damit sie wieder leer ist
-    }
+        let query: URLSearchParams = new URLSearchParams(<any>formData); 
+        urlErstellen();
+        formData = new FormData(document.forms[0]);
 
+        //let url: string = "https://gissoserosl.herokuapp.com";
+        url = url + "/senden" + "?" + query.toString();
+
+        console.log(url);
+        await fetch(url);
+        //await fetch(url, { method: "get" }); //antwort wird mit hilfe von fetch anden server gesendet
+        console.log("test123");
+        urlErstellen();
+    } 
+   
     function urlErstellen(): void { //der variable wird die url zugewiesen
         url = "https://gissoserosl.herokuapp.com";
         //url = "http://localhost:8100";
