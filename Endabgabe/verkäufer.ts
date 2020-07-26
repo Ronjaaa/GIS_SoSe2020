@@ -4,6 +4,7 @@ namespace Endabgabe {
     let text: HTMLElement = <HTMLElement>document.getElementById("bestellungen");
     let formData: FormData;
     
+    
     async function handleNewButton(): Promise<void> {
         console.log("Listening");
         // tslint:disable-next-line: no-any
