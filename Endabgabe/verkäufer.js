@@ -6,6 +6,7 @@ var Endabgabe;
     let text = document.getElementById("bestellungen");
     let formData;
     async function handleNewButton() {
+        console.log("Listening");
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         let url = "https://gissoserosl.herokuapp.com";

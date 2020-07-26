@@ -5,6 +5,7 @@ namespace Endabgabe {
     let formData: FormData;
     
     async function handleNewButton(): Promise<void> {
+        console.log("Listening");
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         let url: string = "https://gissoserosl.herokuapp.com";
