@@ -15,6 +15,10 @@ namespace Endabgabe {
         }
     }
 
+    //Bestellung anzeigen
+    let bestellformular: HTMLElement = <HTMLElement>document.getElementById("bestellung");
+    bestellformular.setAttribute("value", <string>localStorage.getItem("warenkorb")!);
+
     //createWarenkorbArtikel();
     function createWarenkorbArtikel(): void {
         for (let i: number = 0; i < warenkorbDaten.length; i++) {
@@ -72,31 +76,29 @@ namespace Endabgabe {
         location.reload();
     }
 
-    //Start Macell
+    //Datenbank
     let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungAbsenden"));
     newButton.addEventListener("click", handleNewButton);
 
-    let url: string; //deklariere globale variable url. Wird hier deviniert damit es in allen funtionen benutzt werden können
+    let url: string;
 
     async function handleNewButton(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
 
         // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData); 
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
         urlErstellen();
         formData = new FormData(document.forms[0]);
 
-        //let url: string = "https://gissoserosl.herokuapp.com";
         url = url + "/senden" + "?" + query.toString();
 
         console.log(url);
         await fetch(url);
-        //await fetch(url, { method: "get" }); //antwort wird mit hilfe von fetch anden server gesendet
         console.log("test123");
         urlErstellen();
-    } 
-   
-    function urlErstellen(): void { //der variable wird die url zugewiesen
+    }
+
+    function urlErstellen(): void {
         url = "https://gissoserosl.herokuapp.com";
         //url = "http://localhost:8100";
     }

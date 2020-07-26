@@ -4,14 +4,12 @@ import * as Mongo from "mongodb";
 export namespace Endabgabe {
 
     let bestellungenList: Mongo.Collection;
-    //
+
     let databaseUrl: string = "mongodb+srv://RonjaS:gis123@gis-ist-geil.rwghv.mongodb.net/Eisdiele?retryWrites=true&w=majority";
     //let databaseUrl: string = "mongodb://localhost: 27017";
 
     console.log("Starting server");
-    //Port Number wird unter port gespeichert
     let port: number = Number(process.env.PORT);
-    //Wenn port nicht erreichbar, wird Wert 8100 vergeben
     if (!port)
         port = 8100;
 
@@ -46,10 +44,14 @@ export namespace Endabgabe {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
             if (url.pathname == "/senden")
-            bestellungenList.insertOne(url.query);
+                bestellungenList.insertOne(url.query);
 
             else if (url.pathname == "/holen") {
                 _response.write(JSON.stringify(await bestellungenList.find().toArray()));
+            }
+
+            else if (url.pathname == "/loeschen") {
+                bestellungenList.drop();
             }
         }
         console.log(_request.url);

@@ -35,11 +35,11 @@ var Endabgabe;
             setButton.addEventListener("click", handleCounterButton.bind(Endabgabe.data[i]));
             newDiv.appendChild(setButton);
             //Buttondelte
-            let deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "delete";
-            deleteButton.setAttribute("id", "button" + i);
-            deleteButton.addEventListener("click", handleDeleteButton.bind(Endabgabe.data[i]));
-            newDiv.appendChild(deleteButton);
+            //let deleteButton: HTMLButtonElement = document.createElement("button");
+            //deleteButton.innerHTML = "delete";
+            //deleteButton.setAttribute("id", "button" + i);
+            //deleteButton.addEventListener("click", handleDeleteButton.bind(data[i]));
+            //newDiv.appendChild(deleteButton);
             function handleCounterButton(_event) {
                 console.log(this);
                 if (anzahl == 0) {
@@ -69,7 +69,8 @@ var Endabgabe;
                 localStorage.setItem("warenkorb", JSON.stringify(artikelImWarenkorb));
                 console.log(localStorage);
             }
-            function handleDeleteButton(_event) {
+            /*
+            function handleDeleteButton(this: Artikel, _event: Event): void {
                 //Counter reduzieren
                 if (anzahl >= 1) {
                     anzahl--;
@@ -80,6 +81,7 @@ var Endabgabe;
                 document.getElementById("eisgeneratorbild" + i)?.remove();
                 //aus Warenkorb löschen
             }
+            */
             document.getElementById(Endabgabe.data[i].category + ("-grid"))?.appendChild(newDiv);
         }
     }

@@ -7,13 +7,10 @@ const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
     let bestellungenList;
-    //
     let databaseUrl = "mongodb+srv://RonjaS:gis123@gis-ist-geil.rwghv.mongodb.net/Eisdiele?retryWrites=true&w=majority";
     //let databaseUrl: string = "mongodb://localhost: 27017";
     console.log("Starting server");
-    //Port Number wird unter port gespeichert
     let port = Number(process.env.PORT);
-    //Wenn port nicht erreichbar, wird Wert 8100 vergeben
     if (!port)
         port = 8100;
     connectToDatabase(databaseUrl);
@@ -42,6 +39,9 @@ var Endabgabe;
                 bestellungenList.insertOne(url.query);
             else if (url.pathname == "/holen") {
                 _response.write(JSON.stringify(await bestellungenList.find().toArray()));
+            }
+            else if (url.pathname == "/loeschen") {
+                bestellungenList.drop();
             }
         }
         console.log(_request.url);

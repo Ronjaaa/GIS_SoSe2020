@@ -14,6 +14,9 @@ var Endabgabe;
             createWarenkorbArtikel();
         }
     }
+    //Bestellung anzeigen
+    let bestellformular = document.getElementById("bestellung");
+    bestellformular.setAttribute("value", localStorage.getItem("warenkorb"));
     //createWarenkorbArtikel();
     function createWarenkorbArtikel() {
         for (let i = 0; i < warenkorbDaten.length; i++) {
@@ -66,21 +69,19 @@ var Endabgabe;
         localStorage.clear();
         location.reload();
     }
-    //Start Macell
+    //Datenbank
     let newButton = document.getElementById("bestellungAbsenden");
     newButton.addEventListener("click", handleNewButton);
-    let url; //deklariere globale variable url. Wird hier deviniert damit es in allen funtionen benutzt werden können
+    let url;
     async function handleNewButton() {
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         urlErstellen();
         formData = new FormData(document.forms[0]);
-        //let url: string = "https://gissoserosl.herokuapp.com";
         url = url + "/senden" + "?" + query.toString();
         console.log(url);
         await fetch(url);
-        //await fetch(url, { method: "get" }); //antwort wird mit hilfe von fetch anden server gesendet
         console.log("test123");
         urlErstellen();
     }

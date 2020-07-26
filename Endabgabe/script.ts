@@ -35,11 +35,11 @@ namespace Endabgabe {
             setButton.addEventListener("click", handleCounterButton.bind(data[i]));
             newDiv.appendChild(setButton);
             //Buttondelte
-            let deleteButton: HTMLButtonElement = document.createElement("button");
-            deleteButton.innerHTML = "delete";
-            deleteButton.setAttribute("id", "button" + i);
-            deleteButton.addEventListener("click", handleDeleteButton.bind(data[i]));
-            newDiv.appendChild(deleteButton);
+            //let deleteButton: HTMLButtonElement = document.createElement("button");
+            //deleteButton.innerHTML = "delete";
+            //deleteButton.setAttribute("id", "button" + i);
+            //deleteButton.addEventListener("click", handleDeleteButton.bind(data[i]));
+            //newDiv.appendChild(deleteButton);
 
             function handleCounterButton(this: Artikel, _event: Event): void {
 
@@ -73,7 +73,7 @@ namespace Endabgabe {
                 localStorage.setItem("warenkorb", JSON.stringify(artikelImWarenkorb));
                 console.log(localStorage);
             }
-
+            /*
             function handleDeleteButton(this: Artikel, _event: Event): void {
                 //Counter reduzieren
                 if (anzahl >= 1) {
@@ -85,7 +85,7 @@ namespace Endabgabe {
                 document.getElementById("eisgeneratorbild" + i)?.remove();
                 //aus Warenkorb löschen
             }
-
+            */
             document.getElementById(data[i].category + ("-grid"))?.appendChild(newDiv);
         }
     }
