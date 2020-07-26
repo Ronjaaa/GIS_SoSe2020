@@ -29,7 +29,7 @@ var Endabgabe;
     function handleListen() {
         console.log("Listening");
     }
-    //Server Daten erhalten
+    //Server Daten erhalten 
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");

@@ -34,7 +34,7 @@ export namespace Endabgabe {
         console.log("Listening");
     }
 
-    //Server Daten erhalten
+    //Server Daten erhalten 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
