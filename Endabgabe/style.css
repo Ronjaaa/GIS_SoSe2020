@@ -322,3 +322,11 @@ span {
     color: black;
     text-align: center;
 }
+
+/*verkäufer*/
+#bestellungAnzeigen:hover {
+        cursor: pointer;
+        opacity: 0.9;
+        transform: scale(1.1)
+
+}
