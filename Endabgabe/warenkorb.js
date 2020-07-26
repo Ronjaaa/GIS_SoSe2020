@@ -15,6 +15,10 @@ var Endabgabe;
         console.log("test123");
         urlErstellen();
     }
+    function urlErstellen() {
+        url = "https://gissoserosl.herokuapp.com";
+        //url = "http://localhost:8100";
+    }
     window.addEventListener("load", init);
     let gesamtpreis = 0;
     let pGesamtpreis = document.createElement("p");
@@ -79,31 +83,6 @@ var Endabgabe;
     function handleRemoveAll(_event) {
         localStorage.clear();
         location.reload();
-    }
-    //Datenbank
-    let formData; //mit form data kann man sich die datein aus dem formular holen
-    let newButton = document.getElementById("bestellungAbsenden");
-    newButton.addEventListener("click", handleHtml);
-    let url; //deklariere globale variable url. Wird hier deviniert damit es in allen funtionen benutzt werden können
-    //Die Formulardaten werden an den URL gehängt - HTML
-    async function handleHtml() {
-        formData = new FormData(document.forms[0]);
-        // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData); // mit hilfe von urlSearParems wereden die formulardaten im query string gespeichert
-        urlErstellen(); //url wird in die funktion eingelesenund ggf. auf den standartwert zureck gesetzt
-        url = url + "/html" + "?" + query.toString(); //and die url wird der pfad und der querry string angehängt. In diesem Fall html
-        //Die Antwort wird vom Server geholt
-        let response1 = await fetch(url, { method: "get" }); //antwort wird mit hilfe von fetch anden server gesendet
-        let response2 = await response1.text(); //man erhält die antwort vom server und speichert diese als text
-        let ausgabe = document.getElementById("htmlAusgabe"); //paragraphen element wird aus html code geholt. 
-        ausgabe.innerHTML = response2; //antwort des servers wir in html gespeichert
-        console.log(response2); //antwort des servers wird in console ausgegeben
-        console.log("test123");
-        urlErstellen(); //url wird überschrieben damit sie wieder leer ist
-    }
-    function urlErstellen() {
-        url = "https://gissoserosl.herokuapp.com";
-        //url = "http://localhost:8100";
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=warenkorb.js.map
