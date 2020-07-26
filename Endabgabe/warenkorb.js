@@ -80,6 +80,7 @@ var Endabgabe;
         urlErstellen();
         formData = new FormData(document.forms[0]);
         url = url + "/senden" + "?" + query.toString();
+        url = "https://gissoserosl.herokuapp.com";
         console.log(url);
         await fetch(url);
         console.log("test123");
