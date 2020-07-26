@@ -297,6 +297,7 @@ footer {
 #warenkorbartikel img {
     height: 100px;
 }
+
 #warenkorbWert {
     font-size: xx-large;
 }
@@ -324,9 +325,9 @@ span {
 }
 
 /*verkäufer*/
-#bestellungAnzeigen:hover {
-        cursor: pointer;
-        opacity: 0.9;
-        transform: scale(1.1)
 
+#bestellungAnzeigen:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transform: scale(1.1)
 }
