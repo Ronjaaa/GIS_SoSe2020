@@ -87,7 +87,7 @@ namespace Endabgabe {
 
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        urlErstellen();
+        //urlErstellen();
         formData = new FormData(document.forms[0]);
 
         url = url + "/senden" + "?" + query.toString();
@@ -96,12 +96,8 @@ namespace Endabgabe {
         console.log(url);
         await fetch(url);
         console.log("test123");
-        urlErstellen();
+       // urlErstellen();
     }
 
-    function urlErstellen(): void {
-        url = "https://gissoserosl.herokuapp.com";
-        //url = "http://localhost:8100";
-    }
 
 }

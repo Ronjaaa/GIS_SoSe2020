@@ -77,18 +77,14 @@ var Endabgabe;
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        urlErstellen();
+        //urlErstellen();
         formData = new FormData(document.forms[0]);
         url = url + "/senden" + "?" + query.toString();
         url = "https://gissoserosl.herokuapp.com";
         console.log(url);
         await fetch(url);
         console.log("test123");
-        urlErstellen();
-    }
-    function urlErstellen() {
-        url = "https://gissoserosl.herokuapp.com";
-        //url = "http://localhost:8100";
+        // urlErstellen();
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=warenkorb.js.map
