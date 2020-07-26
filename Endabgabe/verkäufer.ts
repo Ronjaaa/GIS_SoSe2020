@@ -1,5 +1,5 @@
 namespace Endabgabe {
-    let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungenAnzeigen"));
+    let newButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("bestellungAnzeigen"));
     newButton.addEventListener("click", handleNewButton);
     let text: HTMLElement = <HTMLElement>document.getElementById("bestellungen");
     let formData: FormData;

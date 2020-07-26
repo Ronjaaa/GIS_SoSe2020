@@ -1,7 +1,7 @@
 "use strict";
 var Endabgabe;
 (function (Endabgabe) {
-    let newButton = document.getElementById("bestellungenAnzeigen");
+    let newButton = document.getElementById("bestellungAnzeigen");
     newButton.addEventListener("click", handleNewButton);
     let text = document.getElementById("bestellungen");
     let formData;
