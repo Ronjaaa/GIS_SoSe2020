@@ -326,7 +326,7 @@ span {
 
 /*verkäufer*/
 
-#bestellungAnzeigen:hover {
+#bestellungAnzeigen button:hover {
     cursor: pointer;
     opacity: 0.9;
     transform: scale(1.1)
