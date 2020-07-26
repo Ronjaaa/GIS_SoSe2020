@@ -112,8 +112,8 @@ namespace Endabgabe {
     }
 
     function urlErstellen(): void { //der variable wird die url zugewiesen
-        //url = "https://gissoserosl.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://gissoserosl.herokuapp.com";
+        //url = "http://localhost:8100";
     }
 
 }

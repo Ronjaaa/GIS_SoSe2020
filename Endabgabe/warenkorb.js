@@ -97,8 +97,8 @@ var Endabgabe;
         urlErstellen(); //url wird überschrieben damit sie wieder leer ist
     }
     function urlErstellen() {
-        //url = "https://gissoserosl.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://gissoserosl.herokuapp.com";
+        //url = "http://localhost:8100";
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=warenkorb.js.map
