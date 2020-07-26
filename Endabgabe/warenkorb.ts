@@ -6,11 +6,20 @@ namespace Endabgabe {
 
 
     async function formularClick(): Promise<void> { 
+
+        //formData = new FormData(document.forms[0]);
+
+        urlErstellen();
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gissoserosl.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
+
+        let url: string = "https://gissoserosl.herokuapp.com";
         url = url + "/senden" + "?" + query.toString();
+
+        console.log(url);
         await fetch(url);
+        console.log("test123");
+        urlErstellen();
     }
 
     window.addEventListener("load", init);

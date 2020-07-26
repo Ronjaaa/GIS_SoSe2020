@@ -4,11 +4,16 @@ var Endabgabe;
     let formularButton = document.getElementById("bestellungAbsenden");
     formularButton.addEventListener("click", formularClick);
     async function formularClick() {
+        //formData = new FormData(document.forms[0]);
+        urlErstellen();
         let formData = new FormData(document.forms[0]);
-        let url = "https://gissoserosl.herokuapp.com";
         let query = new URLSearchParams(formData);
+        let url = "https://gissoserosl.herokuapp.com";
         url = url + "/senden" + "?" + query.toString();
+        console.log(url);
         await fetch(url);
+        console.log("test123");
+        urlErstellen();
     }
     window.addEventListener("load", init);
     let gesamtpreis = 0;
